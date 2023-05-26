@@ -3,7 +3,6 @@ CREATE TABLE Users (
   id INT PRIMARY KEY AUTO_INCREMENT,
   username VARCHAR(50) NOT NULL,
   email VARCHAR(100) NOT NULL,
-  password VARCHAR(100) NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -42,6 +41,10 @@ Future<void> someDatabaseOperation() async {
   final count = Sqflite.firstIntValue(await database.rawQuery('SELECT COUNT(*) FROM your_table'));
   print('Number of rows: $count');
 
+res.json({
+      error: null,
+      data: tasks,
+    });
   // Example using UPPER() function
   final upperCaseString =
       Sqflite.firstStringValue(await database.rawQuery('SELECT UPPER(name) FROM your_table'));
