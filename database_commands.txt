@@ -33,4 +33,29 @@ VALUES ('My First Post', 'Hello, world!', 1);
 DELETE FROM Posts WHERE id = 1;
 
 
+import 'package:sqflite/sqflite.dart';
+
+Future<void> someDatabaseOperation() async {
+  final database = await openDatabase('your_database.db');
+
+  // Example using COUNT() function
+  final count = Sqflite.firstIntValue(await database.rawQuery('SELECT COUNT(*) FROM your_table'));
+  print('Number of rows: $count');
+
+  // Example using UPPER() function
+  final upperCaseString =
+      Sqflite.firstStringValue(await database.rawQuery('SELECT UPPER(name) FROM your_table'));
+  print('Uppercase name: $upperCaseString');
+
+  // Example using CONCAT() function
+  final fullName = Sqflite.firstStringValue(await database.rawQuery(
+      "SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM your_table"));
+  print('Full name: $fullName');
+
+  // ... other SQL function examples
+
+  await database.close();
+}
+
+
 
