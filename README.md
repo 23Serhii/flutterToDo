@@ -46,3 +46,5 @@
 
 # Screens: 
 ![Screenshot](https://i.imgur.com/MYBOs5L.png)
+![Screenshot](https://i.imgur.com/VpovqGj.png)
+![Screenshot](https://i.imgur.com/fI89acw.png)
